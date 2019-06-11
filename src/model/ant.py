@@ -58,7 +58,7 @@ class Ant(GameObject):
         :param home_nest: (Nest) Coordinates of ant position
 
         """
-        position = home_nest.position
+        position = home_nest.position.copy()
         super(Ant, self).__init__(position)
         self.owner = player
         # TODO: needs to be updated as well
