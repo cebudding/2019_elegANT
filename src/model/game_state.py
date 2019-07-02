@@ -1,7 +1,6 @@
-from .kd_tree_and_dict import KdTreeAndDict
 from src.utils import random, array
 import numpy as np
-
+from .kd_tree import KDTree
 
 # Interface with controller
 # GameState calls world interface
@@ -38,7 +37,7 @@ class GameState:
 
         """
         self.players = player_list
-        self.world = KdTreeAndDict()
+        self.world = KDTree()
         positions = []
         for i in range(len(player_list)):
             positions.append(random(2) * 250)
