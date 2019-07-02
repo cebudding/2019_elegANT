@@ -9,8 +9,9 @@ from .nest import Nest
 
 from src.utils import empty
 from src.settings import all_params
+from .world import World
 
-class KDTree():
+class KDTree(World):
     def __init__(self):
         self.all_objects = []
         self.tree = None
