@@ -3,6 +3,7 @@ import numpy as np
 
 from .worker import Worker
 from .ant import Ant
+from .scout import Scout
 from .food import Food
 from .nest import Nest
 
@@ -125,8 +126,14 @@ class KDTree():
 
         for obj in self.all_objects:
             if isinstance(obj, Ant):
-                noticeable_objects = self.get_circular_region(
-                    obj.position, radius=all_params.tree_model_params.circular_region_radius)
+                if isinstance(obj, Scout):
+                    noticeable_objects = self.get_circular_region(
+                        obj.position, radius=all_params.tree_model_params.circular_region_radius_scout)
+
+                elif isinstance(obj, Worker):
+                    noticeable_objects = self.get_circular_region(
+                        obj.position, radius=all_params.tree_model_params.circular_region_radius_worker)
+
                 new_position, new_pheromone = obj.update(noticeable_objects)
 
                 if new_pheromone is not None:
@@ -161,9 +168,8 @@ class KDTree():
 
         if ant_type == "worker":
             CorrectAnt = Worker
-        # TODO: decomment once Scout exists
-        # elif ant_type == "scout"
-        #    CorrectAnt = Scout
+        elif ant_type == "scout":
+            CorrectAnt = Scout
         else:
             raise ValueError("Incorrect Ant type passed at ant creation.")
 
