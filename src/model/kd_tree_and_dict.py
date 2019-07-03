@@ -101,14 +101,14 @@ class KdTreeAndDict(World):
 
     def get_k_nearest_list(self, position_list, k):
         """ Get k nearest neighbour ants for list of positions using kd_tree that uses Euclidean distance.
-
+    
         :param position_list: (list) Coordinates of the positions of interests
         :param k: (int) Number of nearest neighbours
         :return result: (list) all nearest neighbours objects
         :return dists: (array of floats) Distances to the nearest neighbours
-
+    
         """
-
+    
         if len(position_list) == 1:
             return self.get_k_nearest(position_list, k)
         dists, idx_list = self.kd_tree.query(position_list, k, p=2, n_jobs=-1)
@@ -121,18 +121,18 @@ class KdTreeAndDict(World):
                 dict_ind = self.point_matrix[idx]
                 sub_result = [obj for row in dict_ind for obj in self.all_objects[tuple(row)]]
                 result.append(sub_result)
-
+    
         return result, dists
-
+    
     def get_circular_region_list(self, center_list, radius_list):
         """ Return all the objects in each of the circles of interest
-
+    
         :param center_list: (list) Coordinates of the centers of circles of interest
         :param radius_list: (list) Radii of the circles of interest
         :return: (list) All objects in each of the specified circular region
-
+    
         """
-
+    
         position_idx_list = self.kd_tree.query_ball_point(center_list, radius_list,
                                                           p=2, n_jobs=-1)
         result = []

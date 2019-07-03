@@ -36,16 +36,16 @@ class World(ABC):
         """Return all the objects in the given circular region"""
         raise NotImplementedError("Please use subclassing.")
 
-    @abstractmethod
-    def get_k_nearest_list(self, position_list, k):
-        """ Get k nearest neighbour ants for list of positions using kd_tree that uses Euclidean distance."""
-        # Inheriting class should return k nearest neighbours of the passed position
-        raise NotImplementedError("Please use subclassing.")
+    # @abstractmethod
+    # def get_k_nearest_list(self, position_list, k):
+    #     """ Get k nearest neighbour ants for list of positions using kd_tree that uses Euclidean distance."""
+    #     # Inheriting class should return k nearest neighbours of the passed position
+    #     raise NotImplementedError("Please use subclassing.")
 
-    @abstractmethod
-    def get_circular_region_list(self, center_list, radius_list):
-        """ Return all the objects in each of the circles of interest"""
-        raise NotImplementedError("Please use subclassing.")
+    # @abstractmethod
+    # def get_circular_region_list(self, center_list, radius_list):
+    #     """ Return all the objects in each of the circles of interest"""
+    #     raise NotImplementedError("Please use subclassing.")
 
     @abstractmethod
     def update(self):
@@ -67,9 +67,9 @@ class World(ABC):
         """Create new food objects with specific positions/size and update the tree"""
         raise NotImplementedError("Please use subclassing.")
 
-    @abstractmethod
-    def dump_content(self):
-        raise NotImplementedError("Please use subclassing.")
+    # @abstractmethod
+    # def dump_content(self):
+    #     raise NotImplementedError("Please use subclassing.")
 
     @abstractmethod
     def get_ants(self):
