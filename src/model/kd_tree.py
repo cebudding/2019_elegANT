@@ -196,7 +196,10 @@ class KDTree(World):
 
     def __len__(self):
         return len(self.all_objects)
-
+    
+    def dump_content(self):
+        return self.all_objects
+    
     def _update_tree(self):
         """Update the tree"""
         all_pos = empty((len(self.all_objects), 2))
