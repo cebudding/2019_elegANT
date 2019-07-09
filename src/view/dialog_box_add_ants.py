@@ -27,7 +27,7 @@ class DialogBoxAddAnts(DialogBox):
                 ant_type,
                 self.view,
                 f"build_{ant_type}", 0.10 + (idx * 0.10), 0.87, 0.05, 0.09, -1, self.color,
-                self.color, 'square', True, f"src/view/images/{self.name}_build_worker.png"
+                self.color, 'square', True, f"src/view/images/{self.name}_build_{ant_type}.png"
             )
 
             if ant_type == 'scout':
